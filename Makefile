@@ -1,6 +1,5 @@
 CC = gcc
 
-COMMONDIR = Common
 FTDIR = $(HOME)/.ft
 
 CFLAGS = -Wall -Werror -Wextra -I$(INCLUDEDIR) -fPIC
@@ -54,7 +53,7 @@ OBJS_BASE = $(SRCS:.c=.o)
 
 OBJS = $(addprefix $(OBJDIR)/, $(OBJS_BASE))
 
-all: $(NAME) print_error
+all: start
 
 print_begin:
 	@rm -f .make_errors
@@ -64,25 +63,40 @@ print_error:
 	@if [ -e .make_errors ]; then cat .make_errors; fi
 	@rm -f .make_errors
 
-lib_common:
-	echo "Compiling Common ..."
-	@make -C $(COMMONDIR)
-	echo "Installing Common ..."
-	@make -C $(COMMONDIR) install
+start: print_begin $(NAME) print_error
 
-$(NAME): lib_common print_begin $(OBJS) print_error
+$(NAME): $(OBJS)
 	@mkdir -p $(LIBDIR)
-	$(CC) -o $@ $(OBJS) $(LDFLAGS)
+	@$(CC) -o $@ $(OBJS) $(LDFLAGS)
 
 install:
-	@make -C $(COMMONDIR) install
 	@chmod +x install.sh
 	@./install.sh $(NAME) $(INCLUDEDIR) $(LIBDIR)
 
 uninstall:
-	@make -C $(COMMONDIR) uninstall
 	@chmod +x install.sh
 	@./install.sh $(NAME) $(INCLUDEDIR) $(LIBDIR) uninstall
+
+$(OBJDIR)/ft_create_opany.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_create_opbase.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_create_opbegend.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_create_opbrack.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_create_oppipe.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_create_oprep.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_create_opsub.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_create_regex.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_debug.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_match_any.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_match_base.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_match_begend.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_match_brack.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_match_rep.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_match_sub.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_matcher.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_regex.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_regex_parse.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_regmatch.o: $(INCLUDEDIR)/regex.h
+$(OBJDIR)/ft_regmatch_replace.o: $(INCLUDEDIR)/regex.h
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)

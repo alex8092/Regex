@@ -8,7 +8,7 @@
 # else
 #  define DEBUG(X)
 # endif
-# include "common.h"
+# include <ft/common.h>
 
 typedef struct s_regex		t_regex;
 typedef struct s_regbuilder	t_regbuilder;
