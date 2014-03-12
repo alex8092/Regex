@@ -1,4 +1,4 @@
-#include "ft_regex.h"
+#include "regex.h"
 
 static void	ft_do_rep(t_regbuilder *rb, t_oprep *rep)
 {

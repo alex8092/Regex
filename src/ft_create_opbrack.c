@@ -1,4 +1,4 @@
-#include "ft_regex.h"
+#include "regex.h"
 
 t_opbrack	*ft_create_opbrack(t_regbuilder *rb)
 {

@@ -1,4 +1,4 @@
-#include "ft_regex.h"
+#include "regex.h"
 
 int	ft_match_brack(t_regmatch *rm, int pos, t_regex *cur)
 {

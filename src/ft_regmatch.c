@@ -1,4 +1,4 @@
-#include "ft_regex.h"
+#include "regex.h"
 
 char	*ft_regmatch(char *str, t_regex *regex, size_t *len_match)
 {

@@ -1,4 +1,4 @@
-#include "ft_regex.h"
+#include "regex.h"
 #include <unistd.h>
 
 t_regex	*ft_regex(char *str)

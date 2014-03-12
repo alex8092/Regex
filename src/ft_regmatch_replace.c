@@ -1,4 +1,4 @@
-#include "ft_regex.h"
+#include "regex.h"
 #include <stdlib.h>
 
 static char	*ft_regmatch_replace_new(char *s, char *m, char *rep, size_t len)

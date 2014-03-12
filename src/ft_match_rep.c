@@ -1,4 +1,4 @@
-#include "ft_regex.h"
+#include "regex.h"
 
 int	ft_match_rep(t_regmatch *rm, int pos, t_regex *cur)
 {
