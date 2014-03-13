@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 t_opbeg	*ft_create_opbeg(t_regbuilder *rb)
 {

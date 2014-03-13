@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 t_regex	*ft_new_reg(t_regex *parent, t_regop type, int size)
 {

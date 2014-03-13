@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 t_opany	*ft_create_opany(t_regbuilder *rb)
 {

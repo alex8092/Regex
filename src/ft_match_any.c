@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 int	ft_match_any(t_regmatch *rm, int pos, t_regex *cur)
 {

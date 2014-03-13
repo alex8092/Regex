@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 static void	ft_match_next(t_regex **cur)
 {

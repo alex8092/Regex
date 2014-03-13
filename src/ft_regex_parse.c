@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 void	ft_regex_parse(t_regbuilder *rb)
 {

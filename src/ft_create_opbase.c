@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 t_opbase	*ft_create_opbase(t_regbuilder *rb)
 {

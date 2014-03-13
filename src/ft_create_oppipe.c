@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 t_oppipe	*ft_create_oppipe(t_regbuilder *rb)
 {

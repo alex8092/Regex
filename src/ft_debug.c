@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex_private.h"
 
 #if REGEX_DEBUG == 1
 char	*ft_regop_to_str(t_regop op)
