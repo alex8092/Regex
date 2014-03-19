@@ -12,12 +12,18 @@ else
 	CFLAGS += -O3
 endif
 
-LDFLAGS = -shared -L$(FTDIR)/lib -lftcommon -Wl,-rpath,$(FTDIR)/lib
 
-LD_LIBRARY_PATH=$(FTDIR)/lib:$(LD_LIBRARY_PATH)
+LDFLAGS = -L$(FTDIR)/lib -lftcommon -Wl,-rpath,$(FTDIR)/lib
+OS = $(shell uname -s)
+ifeq ($(OS),Darwin)
+	SHORTNAME = libftregex.dylib
+	LDFLAGS += -dynamiclib -install_name @rpath/$(SHORTNAME)
+else
+	SHORTNAME = libftregex.so
+	LDFLAGS += -shared
+endif
 
 NAME = $(LIBDIR)/$(SHORTNAME)
-SHORTNAME = libftregex.so
 
 SRCS =	ft_create_opany.c \
 		ft_create_opbase.c \
